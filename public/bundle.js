@@ -711,6 +711,8 @@ function render(variables = {}) {
   name_ = variables.name;
   let lastname_ = " ";
   lastname_ = variables.lastname;
+  if (variables.name == null) name_ = "Your First name";
+  if (variables.lastname == null) lastname_ = "Your Last name";
 
   //Roles
   let jobrole = " ";
