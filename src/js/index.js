@@ -9,24 +9,53 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+
+  //Name
+  let name_ = " ";
+  name_ = variables.name;
+  let lastname_ = " ";
+  lastname_ = variables.lastname;
+
   //Roles
-  let jobrole = "Web Developer";
+  let jobrole = " ";
   if (variables.role == "Web Developer") jobrole = "Web Developer";
   if (variables.role == "Floor Planner") jobrole = "Floor Planer";
   if (variables.role == "Technical Writter") jobrole = "Technical Writter";
+
+  //City
+  let city_ = " ";
+  if (variables.city == "Miami") city_ = "Miami";
+  if (variables.city == "Munich") city_ = "Munich";
+  if (variables.city == "Caracas") city_ = "Caracas";
+  if (variables.city == "Toronto") city_ = "Toronto";
+
+  //Country
+  let country_ = " ";
+  if (variables.country == "USA") country_ = "USA";
+  if (variables.country == "Germany") country_ = "Germany";
+  if (variables.country == "Canada") country_ = "Canada";
+  if (variables.country == "Venezuela") country_ = "Venezuela";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
+          <h1>${name_} ${lastname_}</h1>
           <h2>${jobrole}</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/rolobasket"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h3>${city_}, ${country_}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
