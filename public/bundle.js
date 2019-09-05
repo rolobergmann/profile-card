@@ -705,13 +705,18 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  //Roles
+  let jobrole = "Web Developer";
+  if (variables.role == 'Web Developer') jobrole = "Web Developer";
+  if (variables.role == 'Floor Planner') jobrole = "Floor Planer";
+  if (variables.role == 'Technical Writter') jobrole = "Technical Writter";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
+          <h2>${jobrole}</h2>
           <h3>Miami, USA</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/rolobasket"><i class="fa fa-twitter"></i></a></li>
